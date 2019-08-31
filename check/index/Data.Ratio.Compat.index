@@ -1,6 +1,0 @@
-(%)
-approxRational
-data Ratio a = ...
-denominator
--- imported via Data.Ratio.Compat
-numerator
