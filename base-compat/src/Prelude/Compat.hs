@@ -5,7 +5,7 @@
 #if MIN_VERSION_base(4,10,0) && !(MIN_VERSION_base(4,12,0))
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE RankNTypes #-}
-{-# LANGUAGE TypeInType #-}
+-- {-# LANGUAGE TypeInType #-}
 #endif
 module Prelude.Compat (
 #if MIN_VERSION_base(4,12,0)
@@ -281,7 +281,7 @@ import Prelude as Base hiding (
 # if !(MIN_VERSION_base(4,13,0))
     fail
 #  if MIN_VERSION_base(4,10,0) && !(MIN_VERSION_base(4,12,0))
-  , ($!)
+--  , ($!)
 #  endif
 # endif
   )
@@ -334,7 +334,7 @@ import Control.Monad.Fail as Base (MonadFail(fail))
 #endif
 
 #if MIN_VERSION_base(4,10,0) && !(MIN_VERSION_base(4,12,0))
-import GHC.Exts (TYPE)
+-- import GHC.Exts (TYPE)
 #endif
 
 #if !(MIN_VERSION_base(4,9,0))
@@ -350,7 +350,7 @@ errorWithoutStackTrace s = error s
 -- | Strict (call-by-value) application operator. It takes a function and an
 -- argument, evaluates the argument to weak head normal form (WHNF), then calls
 -- the function with that value.
-infixr 0 $!
-($!) :: forall r a (b :: TYPE r). (a -> b) -> a -> b
-f $! x = let !vx = x in f vx  -- see #2273
+-- infixr 0 $!
+-- ($!) :: forall r a (b :: TYPE r). (a -> b) -> a -> b
+-- f $! x = let !vx = x in f vx  -- see #2273
 #endif
